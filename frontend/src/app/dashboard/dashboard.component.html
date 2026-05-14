@@ -1,0 +1,44 @@
+<div class="dashboard-page">
+  <div class="page-header">
+    <h1>Latest UNCC News</h1>
+    <p>Stay up to date with what's happening at UNC Charlotte</p>
+  </div>
+
+  <div *ngIf="loading" class="loading-state">
+    <mat-spinner diameter="48"></mat-spinner>
+    <p>Fetching the latest news...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !loading" class="error-state">
+    <mat-icon>error_outline</mat-icon>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div class="news-grid" *ngIf="!loading">
+    <mat-card class="news-card" *ngFor="let article of newsArticles" appearance="outlined">
+      <div class="card-image-wrap">
+        <img [src]="article.imageUrl" [alt]="article.title" class="card-image"
+             (error)="onImageError($event)" />
+      </div>
+      <mat-card-header>
+        <mat-card-title class="card-title">{{ article.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="card-summary">{{ article.summary }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button color="primary" [href]="article.link" target="_blank">
+          <mat-icon>open_in_new</mat-icon>
+          Read Full Article
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="read-more-section" *ngIf="!loading && newsArticles.length > 0">
+    <button mat-flat-button class="read-more-btn" (click)="openNewsHub()">
+      <mat-icon>newspaper</mat-icon>
+      View All UNCC News
+    </button>
+  </div>
+</div>

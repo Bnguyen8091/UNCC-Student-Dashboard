@@ -1,0 +1,43 @@
+<div class="app-shell">
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.collapsed]="sidenavCollapsed">
+    <div class="sidebar-header">
+      <img src="/uncc-logo.png" alt="UNCC" class="uncc-logo" />
+      <div *ngIf="!sidenavCollapsed">
+        <div class="brand-title">49er Dashboard</div>
+        <div class="brand-subtitle">UNC Charlotte</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a routerLink="/dashboard" routerLinkActive="nav-active" class="nav-item">
+        <mat-icon>dashboard</mat-icon>
+        <span *ngIf="!sidenavCollapsed">Dashboard</span>
+      </a>
+      <a routerLink="/summary" routerLinkActive="nav-active" class="nav-item">
+        <mat-icon>bar_chart</mat-icon>
+        <span *ngIf="!sidenavCollapsed">Summary</span>
+      </a>
+      <a routerLink="/reports" routerLinkActive="nav-active" class="nav-item">
+        <mat-icon>pie_chart</mat-icon>
+        <span *ngIf="!sidenavCollapsed">Reports</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main area -->
+  <div class="main-area">
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="sidenavCollapsed = !sidenavCollapsed" aria-label="Toggle menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="toolbar-title">UNC Charlotte Student Dashboard</span>
+    </mat-toolbar>
+
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

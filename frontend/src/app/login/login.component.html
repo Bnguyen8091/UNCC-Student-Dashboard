@@ -1,0 +1,50 @@
+<div class="login-page">
+  <div class="login-brand">
+    <div class="login-logo">🏫</div>
+    <h1>UNC Charlotte</h1>
+    <p>Student Dashboard</p>
+  </div>
+
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+      <mat-card-subtitle>Use your 49er credentials</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form (ngSubmit)="login()" class="login-form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput [(ngModel)]="username" name="username" required placeholder="Enter username" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput [type]="hidePassword ? 'password' : 'text'"
+                 [(ngModel)]="password" name="password" required />
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <div *ngIf="errorMessage" class="error-banner">
+          <mat-icon>error_outline</mat-icon>
+          {{ errorMessage }}
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" class="login-btn" [disabled]="loading">
+          <mat-spinner *ngIf="loading" diameter="20" class="btn-spinner"></mat-spinner>
+          <span *ngIf="!loading">Sign In</span>
+        </button>
+      </form>
+    </mat-card-content>
+
+    <mat-card-footer class="login-footer">
+      <p class="hint-text">
+        Demo credentials &mdash; username: <strong>niner</strong> &nbsp;/&nbsp; password: <strong>uncc2024</strong>
+      </p>
+    </mat-card-footer>
+  </mat-card>
+</div>

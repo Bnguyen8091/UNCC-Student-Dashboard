@@ -1,0 +1,53 @@
+<div class="summary-page">
+  <div class="page-header">
+    <h1>Charlotte Profile</h1>
+    <p>Fall 2023 Enrollment Overview</p>
+  </div>
+
+  <div class="content-grid">
+    <mat-card class="chart-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Student Enrollment by Category</mat-card-title>
+        <mat-card-subtitle>Total enrolled: 30,298 students</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="chart-content">
+        <canvas baseChart
+          [data]="barChartData"
+          [type]="barChartType"
+          [options]="barChartOptions">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="info-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>About UNC Charlotte</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="description">
+          Today, our modern University and thriving city create opportunities for 49ers to enact
+          change throughout our region. At Charlotte, we drive progress, grow as individuals,
+          and shape the future as the next generation of leaders.
+        </p>
+        <div class="stats-row">
+          <div class="stat">
+            <div class="stat-value">30K+</div>
+            <div class="stat-label">Total Students</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">300+</div>
+            <div class="stat-label">Degree Programs</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">Top 200</div>
+            <div class="stat-label">National Research</div>
+          </div>
+        </div>
+        <button mat-flat-button color="primary" class="admissions-btn" (click)="navigateToAdmissions()">
+          <mat-icon>school</mat-icon>
+          Explore Admissions
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

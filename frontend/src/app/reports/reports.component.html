@@ -1,0 +1,56 @@
+<div class="reports-page">
+  <div class="page-header">
+    <h1>Reports</h1>
+    <p>Explore fundraising data and help make a difference</p>
+  </div>
+
+  <div class="content-grid">
+    <mat-card class="chart-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Fundraising Overview</mat-card-title>
+        <mat-card-subtitle>Campaign performance breakdown</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="chart-content">
+        <canvas baseChart
+          [data]="pieChartData"
+          [type]="pieChartType"
+          [options]="pieChartOptions">
+        </canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="donate-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Support UNC Charlotte</mat-card-title>
+        <mat-card-subtitle>Together we can make a bigger impact</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="impact-stats">
+          <div class="impact-item">
+            <mat-icon class="impact-icon">attach_money</mat-icon>
+            <div>
+              <div class="impact-value">$4,684,513</div>
+              <div class="impact-label">Total Raised</div>
+            </div>
+          </div>
+          <div class="impact-item">
+            <mat-icon class="impact-icon">favorite</mat-icon>
+            <div>
+              <div class="impact-value">6,088</div>
+              <div class="impact-label">Generous Gifts</div>
+            </div>
+          </div>
+        </div>
+        <p class="donate-message">
+          Your support powers student scholarships, research opportunities, and the future of 49ers everywhere.
+        </p>
+        <a href="https://giving.charlotte.edu" target="_blank" style="text-decoration: none;">
+          <button mat-flat-button class="donate-btn">
+            <mat-icon>volunteer_activism</mat-icon>
+            Donate Now
+          </button>
+        </a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
